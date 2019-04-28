@@ -1,12 +1,9 @@
 <h1>Seja bem vindo!</h1>
 
-<ul>
-    <li>
-        <!-- forma tradicional de gerar link no HTML. Essa forma não é utilizada em projetos rails -->
-        <!-- <a href="http://localhost:3000/coins" > Cadastrar Moedas </a>  Não aconselhável pôr o endereço todo porque em produção dará erro de rota -->
-        <a href="/coins" > Cadastrar Moedas </a>
-    </li>
+<!-- <p><strong>Data:</strong> <%= Date.today.strftime("%d/%m/%Y") %> </p> 'strftime("%d/%m/%Y")' converte o formato de data, mas não é a melhor forma em rails -->
+<p><strong>Data:</strong> <%= data_br(Date.today) %></p>
 
+<ul>
     <li>
         <!-- forma padrão para gerar links em HTML.ERB - helper 'link_to' -->
         <%= link_to "Cadastrar Moedas", coins_path %>
