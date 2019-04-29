@@ -3,13 +3,14 @@
 <!-- <p><strong>Data:</strong> <%= Date.today.strftime("%d/%m/%Y") %> </p> 'strftime("%d/%m/%Y")' converte o formato de data, mas não é a melhor forma em rails -->
 <p><strong>Data:</strong> <%= data_br(Date.today) %></p>
 
-<ul>
-    <li>
-        <!-- forma padrão para gerar links em HTML.ERB - helper 'link_to' -->
-        <%= link_to "Cadastrar Moedas", coins_path %>
-    </li>
-</ul>
+<%= render "menu" %>
 
 <p>
     Você está em ambiente de <strong><%= ambiente_rails %></strong>
+</p>
+<p>
+    Eu sou uma variável de instância/sessão <strong><%= @meu_nome %></strong>
+</p>
+<p>
+    Meu curso é o curso de <strong><%= @curso %></strong>
 </p>
