@@ -18,7 +18,7 @@ class CoinsController < ApplicationController
 
   # GET /coins/new
   def new
-    @coin = Coin.new
+    @coin = Coin.new # Essa ação instancia um objeto vazio, mas com os atributos para serem preenchidos. Ou seja, disponibliza a tabela com os campos especificados, mas vazios, para o formulário da aplicação
   end
 
   # GET /coins/1/edit
