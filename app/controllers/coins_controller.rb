@@ -6,7 +6,7 @@ class CoinsController < ApplicationController
   # GET /coins
   # GET /coins.json
   def index
-    @coins = Coin.all
+    @coins = Coin.all # variável de instância que recebe todos os elementos do model Coin (da tabela coins)
   end
 
   # GET /coins/1

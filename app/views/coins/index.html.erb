@@ -15,10 +15,10 @@
   </thead>
 
   <tbody>
-    <% @coins.each do |coin| %>
+    <% @coins.each do |coin| %> <!-- 'each' quer dizer que vai pegar cada um dos elementos de @coins(que é a variável de instância do método index do controller) e chamar de 'coin' < do |coin| >, ou seja, serão transformados em variáveis locais na index -->
       <tr>
-        <td><%= coin.description %></td>
-        <td><%= coin.acronym %></td>
+        <td><%= coin.description %></td> <!-- após a iteração each se torna variável local no singular: pega essa moeda e pede a descrição -->
+        <td><%= coin.acronym %></td> <!-- pega essa moeda e pede o símbolo -->
         <!-- <td> <img src="<%= coin.url_image %>" width="25px" height="25px" /> </td> -->
         <td> <%= image_tag coin.url_image, width:25, height:25 %> </td>
         <td><%= link_to 'Mostrar', coin %></td>
