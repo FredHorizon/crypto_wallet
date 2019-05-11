@@ -1,6 +1,7 @@
 class CoinsController < ApplicationController
   layout "adm" # especifica qual layout usar. Se não for especificado, o controller usará o padrão, ou seja, 'application.html.erb'
 
+  # Antes de uma ação, set_coin(configure uma moeda) somente(only) em show, edit, update e destroy
   before_action :set_coin, only: [:show, :edit, :update, :destroy]
 
   # GET /coins
@@ -12,6 +13,7 @@ class CoinsController < ApplicationController
   # GET /coins/1
   # GET /coins/1.json
   def show
+    # a ação do show é feita pelo before_action com o método set_coin. Por isso não há necessidade de configurar nada aqui
   end
 
   # GET /coins/new
@@ -56,17 +58,17 @@ class CoinsController < ApplicationController
   # DELETE /coins/1
   # DELETE /coins/1.json
   def destroy
-    @coin.destroy
+    @coin.destroy # '@coin' variável configurada no método set_coin
     respond_to do |format|
-      format.html { redirect_to coins_url, notice: 'Coin was successfully destroyed.' }
+      format.html { redirect_to coins_url, notice: 'Coin was successfully destroyed.' } # Após excluir redireciona para index e exibe a mensagem de que foi apagado com sucesso.
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
+    # Pegar a moeda coin e encontrá-la a partir do parâmetro id
     def set_coin
-      @coin = Coin.find(params[:id])
+      @coin = Coin.find(params[:id]) # find retorna um único elemento, e não um array de elementos.
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

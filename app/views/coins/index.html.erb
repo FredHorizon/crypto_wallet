@@ -1,4 +1,4 @@
-<p id="notice"><%= notice %></p>
+<p id="notice"><%= notice %></p> <!-- permite a exibição de mensagens como, por exemplo, quando um arquivo é excluído ou atualizado. Essa variável especial precisa ser setada na ação referente do controller -->
 
 <%= data_br(Date.today) %>
 
@@ -20,7 +20,7 @@
         <td><%= coin.description %></td> <!-- após a iteração each se torna variável local no singular: pega essa moeda e pede a descrição -->
         <td><%= coin.acronym %></td> <!-- pega essa moeda e pede o símbolo -->
         <!-- <td> <img src="<%= coin.url_image %>" width="25px" height="25px" /> </td> -->
-        <td> <%= image_tag coin.url_image, width:25, height:25 %> </td>
+        <td> <%= image_tag coin.url_image, size: "25x25" %> </td>
         <td><%= link_to 'Mostrar', coin %></td>
         <td><%= link_to 'Editar', edit_coin_path(coin) %></td>
         <td><%= link_to 'Apagar', coin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
