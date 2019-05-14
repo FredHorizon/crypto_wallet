@@ -65,13 +65,14 @@ class CoinsController < ApplicationController
     end
   end
 
-  private
+  private # somente o controller tem acesso aos métodos depois do private
     # Pegar a moeda coin e encontrá-la a partir do parâmetro id
     def set_coin
       @coin = Coin.find(params[:id]) # find retorna um único elemento, e não um array de elementos.
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
+    # Nunca confie em parâmetros que vêm da internet, permita somente os da white list.
     def coin_params
       params.require(:coin).permit(:description, :acronym, :url_image)
     end
