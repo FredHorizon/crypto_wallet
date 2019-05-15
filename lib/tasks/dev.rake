@@ -15,22 +15,27 @@ namespace :dev do
     #end
 
     if Rails.env.development?
-      spinner = TTY::Spinner.new("[:spinner] Criando banco de dados...")
-      spinner.auto_spin
-      %x(rails db:create)
-      spinner.success('(Concluído com sucesso!)')
+      show_spinner("Criando BD...") do # somente o primeiro argumento do método foi chamado
+        %x(rails db:create)
+      end
 
-      spinner = TTY::Spinner.new("[:spinner] Migrando banco de dados...")
-      spinner.auto_spin
-      %x(rails db:migrate)
-      spinner.success('(Concluído com sucesso!)')
-
-      spinner = TTY::Spinner.new("[:spinner] Populando banco de dados...")
-      spinner.auto_spin
-      %x(rails db:seed)
-      spinner.success('(Concluído com sucesso!)')
+      show_spinner("Migrando BD...") { %x(rails db:migrate) } # quando a estrutura tem apenas uma linha, não precisa de 'do ... end'
+      
+      show_spinner("Populando BD...") do
+        %x(rails db:seed)
+      end
     else
       puts "Você não está em modo de desenvolvimento!"
     end
   end
+
+  private
+
+  def show_spinner(msg_start, msg_end = "Conluído com sucesso!") # parâmetros de mensagem de início e final. A de final será por padrão 'Concluído com sucesso', caso não seja setada
+    spinner = TTY::Spinner.new("[:spinner] #{msg_start}")
+    spinner.auto_spin
+    yield # executará o trecho de código '%x(rails db:...)'
+    spinner.success("(#{msg_end})")
+  end
+
 end
