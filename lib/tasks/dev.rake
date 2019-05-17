@@ -17,8 +17,8 @@ namespace :dev do
     if Rails.env.development?
       show_spinner("Criando BD...") { %x(rails db:create) }
       show_spinner("Migrando BD...") { %x(rails db:migrate) } # quando a estrutura tem apenas uma linha, não precisa de 'do ... end'
+      %x(rails dev:add_mining_types) # Não pode haver coins sem tipos de mineração. por isso 'mining_types' vem por primeiro
       %x(rails dev:add_coins)
-      %x(rails dev:add_mining_types)
     else
       puts "Você não está em modo de desenvolvimento!"
     end
@@ -33,27 +33,33 @@ namespace :dev do
                   {
                       description: "Bitcoin",
                       acronym: "BTH",
-                      url_image: "http://pngimg.com/uploads/bitcoin/bitcoin_PNG47.png"
+                      url_image: "http://pngimg.com/uploads/bitcoin/bitcoin_PNG47.png",
+                      mining_type: MiningType.find_by(acronym: 'PoW') # Força a inserção de um tipo de mineração específica: Proof of Work
+                      # mining_type: MiningType.where(acronym: 'PoW').first # força a busca também, mas where busca um ou mais elementos, enquanto que find_by busca apenas um.
                   },
                   {
                       description: "Ethereum",
                       acronym: "ETH",
-                      url_image: "https://banner2.kisspng.com/20180820/ryr/kisspng-ethereum-bitcoin-cryptocurrency-blockchain-logo--5b7b6e2bd92a00.5250630615348157878895.jpg"
+                      url_image: "https://banner2.kisspng.com/20180820/ryr/kisspng-ethereum-bitcoin-cryptocurrency-blockchain-logo--5b7b6e2bd92a00.5250630615348157878895.jpg",
+                      mining_type: MiningType.all.sample # insere um tipo de mineração ao campo mining_type por meio do método 'sample'
                   },
                   {
                       description: "Dash",
                       acronym: "DASH",
-                      url_image: "https://www.ultimatemoney.com.au/wp-content/uploads/2018/06/dash-coin.png"
+                      url_image: "https://www.ultimatemoney.com.au/wp-content/uploads/2018/06/dash-coin.png",
+                      mining_type: MiningType.all.sample
                   },
                   {
                     description: "Iota",
                     acronym: "IOT",
-                    url_image: "https://cdn4.iconfinder.com/data/icons/iota-bitcoin-crytocurrency/128/bitcoin_Cryptocurrency_Iota_2_coin-512.png"
+                    url_image: "https://cdn4.iconfinder.com/data/icons/iota-bitcoin-crytocurrency/128/bitcoin_Cryptocurrency_Iota_2_coin-512.png",
+                    mining_type: MiningType.all.sample
                   },
                   {
                     description: "ZCash",
                     acronym: "ZEC",
-                    url_image: "https://cdn2.iconfinder.com/data/icons/cryptocurrency-5/100/cryptocurrency_blockchain_crypto-16-512.png"
+                    url_image: "https://cdn2.iconfinder.com/data/icons/cryptocurrency-5/100/cryptocurrency_blockchain_crypto-16-512.png",
+                    mining_type: MiningType.all.sample
                 }
               ]
       

@@ -1,3 +1,3 @@
 class Coin < ApplicationRecord
-    belongs_to :mining_type # esse campo(mining_type), essa fk, pertence_a(belongs_to) tabela mining_types
+    belongs_to :mining_type #, 'optional :true' permite criar a tabela coins ignorando o campo mining_type, mas vai ocorrer erro nos relacionamentos. Portanto, não é recomendado.
 end
