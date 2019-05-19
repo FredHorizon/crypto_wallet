@@ -29,7 +29,7 @@
 
   <div class="field">
     <%= form.label :mining_type %>
-    <%= form.select("mining_type_id", MiningType.all.pluck(:description, :id), { include_blank: "selecione..." }) %>
+    <%= form.select("mining_type_id", @mining_type_options, { include_blank: "selecione..." }) %>
   </div>
   
   <div class="actions">

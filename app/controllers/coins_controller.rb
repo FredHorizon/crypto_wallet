@@ -3,6 +3,7 @@ class CoinsController < ApplicationController
 
   # Antes de uma ação, set_coin(configure uma moeda) somente(only) em show, edit, update e destroy
   before_action :set_coin, only: [:show, :edit, :update, :destroy]
+  before_action :set_mining_type_options, only: [:new, :create, :edit, :update]
 
   # GET /coins
   # GET /coins.json
@@ -65,8 +66,12 @@ class CoinsController < ApplicationController
     end
   end
 
-  private # somente o controller tem acesso aos métodos depois do private
-    # Pegar a moeda coin e encontrá-la a partir do parâmetro id
+  private
+  
+    def set_mining_type_options
+      @mining_type_options = MiningType.all.pluck(:description, :id)
+    end
+
     def set_coin
       @coin = Coin.find(params[:id]) # find retorna um único elemento, e não um array de elementos.
     end
