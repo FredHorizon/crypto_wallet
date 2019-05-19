@@ -28,12 +28,8 @@
   </div>
 
   <div class="field">
-    <!-- Sintaxe do helper select:
-      <#%= select("post", "person_id", Person.all.collect {|p| [ p.name, p.id ] }, { include_blank: true }) %>
-    -->
-    <!-- Contudo, o método form_with foi implementado nessa partial. Isso dispensa o uso do objeto "post", que no caso seria "coin". Então a sintaxe fica assim: -->
     <%= form.label :mining_type %>
-    <%= form.select("mining_type_id", MiningType.all.collect {|m| [ m.description, m.id ] }, { include_blank: "selecione..." }) %> <!-- 'mining_type_id' é o campo FK. 'collect'é a mesma coisa que '.map'-->
+    <%= form.select("mining_type_id", MiningType.all.pluck(:description, :id), { include_blank: "selecione..." }) %>
   </div>
   
   <div class="actions">
