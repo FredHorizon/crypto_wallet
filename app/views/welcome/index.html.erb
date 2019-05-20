@@ -1,7 +1,7 @@
 <h1>Seja bem vindo!</h1>
 
-<!-- <p><strong>Data:</strong> <%= Date.today.strftime("%d/%m/%Y") %> </p> 'strftime("%d/%m/%Y")' converte o formato de data, mas não é a melhor forma em rails -->
-<p><strong>Data:</strong> <%= data_br(Date.today) %></p>
+<p> O idioma padrão da aplicação é: <strong><%= I18n.locale %></strong> </p>
+<p><strong>Data:</strong> <%= Date.today %></p>
 
 <%= render "menu" %>
 
