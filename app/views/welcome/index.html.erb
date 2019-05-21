@@ -1,6 +1,6 @@
 <h1>Seja bem vindo!</h1>
 
-<p> O idioma padrão da aplicação é: <strong><%= locale %></strong> </p>
+<p> O idioma padrão da aplicação é: <strong><%= t('actual_locale') %></strong> </p>
 <p><strong>Data:</strong> <%= I18n.l(Date.today) %></p>
 <!-- <p> <%= I18n.t('hello') %> </p> -->
 <p> <%= t('hello') %> </p> <!-- nas views a instância do 't' não é necessária, basta por o objeto diretamente que o rails reconhece -->

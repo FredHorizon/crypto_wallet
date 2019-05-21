@@ -1,15 +1,16 @@
 module ApplicationHelper
     
-    def locale
-        # if I18n.locale == :en
-        #     "English USA"
-        # else
-        #     "Português Brasil"
-        # end
-
-        # if 'ternário' para sentenças simples:
-        I18n.locale == :en ? "English USA" : "Português Brasil"
-    end
+    # Método obsoleto, a tradução i18n foi para 'locales'
+    # def locale
+    #    # if I18n.locale == :en
+    #    #     "English USA"
+    #    # else
+    #    #     "Português Brasil"
+    #    # end
+    #
+    #    # if 'ternário' para sentenças simples:
+    #    I18n.locale == :en ? "English USA" : "Português Brasil"
+    # end
 
     # Necessita da gem 'rails-i18n'
     def data_br(data_us)
