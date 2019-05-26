@@ -1,10 +1,6 @@
 <p id="notice"><%= notice %></p> <!-- permite a exibição de mensagens como, por exemplo, quando um arquivo é excluído ou atualizado. Essa variável especial precisa ser setada na ação referente do controller -->
 
-<%= Date.today %>
-
-<h1>Moedas</h1>
-<h1> <%= cookies[:curso] %> </h1> <!-- teste de verificação de cookie -->
-<h1> <%= session[:curso] %> </h1>
+<h1><%= Coin.model_name.human(count: @coins).count %></h1> <!-- count: @coins.count conta as moedas pra determinar se o h1 fica no singular ou plural -->
 
 <table class="table table-striped">
   <thead>
@@ -23,9 +19,9 @@
         <td><%= coin.acronym %></td> <!-- pega essa moeda e pede o símbolo -->
         <!-- <td> <img src="<%= coin.url_image %>" width="25px" height="25px" /> </td> -->
         <td> <%= image_tag coin.url_image, size: "25x25" %> </td>
-        <td><%= link_to t('links.show'), coin %></td>
-        <td><%= link_to t('links.edit'), edit_coin_path(coin) %></td>
-        <td><%= link_to t('links.delete'), coin, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to t('links.show'), coin, class:"btn btn-secondary" %></td>
+        <td><%= link_to t('links.edit'), edit_coin_path(coin), class:"btn btn-info" %></td>
+        <td><%= link_to t('links.delete'), coin, method: :delete, data: { confirm: t('messages.confirm') }, class:"btn btn-danger" %></td>
       </tr>
     <% end %>
   </tbody>
@@ -33,4 +29,4 @@
 
 <br>
 
-<%= link_to 'New Coin', new_coin_path %>
+<%= link_to t('links.new'), new_coin_path, class:"btn btn-primary" %>
