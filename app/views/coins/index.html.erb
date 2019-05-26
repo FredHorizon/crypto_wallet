@@ -6,7 +6,7 @@
 <h1> <%= cookies[:curso] %> </h1> <!-- teste de verificação de cookie -->
 <h1> <%= session[:curso] %> </h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
       <th><%= @coins.human_attribute_name(:description) %></th> <!-- 'Coin.human_attribute_name(:description)' view não deve acessar o model -->
