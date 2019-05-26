@@ -1,5 +1,13 @@
 {
   "name": "crypto_wallet",
   "private": true,
-  "dependencies": {}
+  "dependencies": {
+    "jquery": "^3.4.1",
+    "notify-js-legacy": "^0.4.1"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@github.com:FredHorizon/crypto_wallet.git",
+  "author": "FredHorizon <fredoliveira.sys@gmail.com>",
+  "license": "MIT"
 }
