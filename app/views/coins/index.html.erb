@@ -1,6 +1,6 @@
 <p id="notice"><%= notice %></p> <!-- permite a exibição de mensagens como, por exemplo, quando um arquivo é excluído ou atualizado. Essa variável especial precisa ser setada na ação referente do controller -->
 
-<h1><%= Coin.model_name.human(count: @coins).count %></h1> <!-- count: @coins.count conta as moedas pra determinar se o h1 fica no singular ou plural -->
+<h1><%= Coin.model_name.human(count: @coins.count) %></h1> <!-- count: @coins.count conta as moedas pra determinar se o h1 fica no singular ou plural -->
 
 <table class="table table-striped">
   <thead>
