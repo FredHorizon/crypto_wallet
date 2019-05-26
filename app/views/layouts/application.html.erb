@@ -6,7 +6,6 @@
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= stylesheet_link_tag    'scaffolds', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_link_tag    params[:controller], media: 'all', 'data-turbolinks-track': 'reload' %>
     
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -14,11 +13,17 @@
   </head>
 
   <body>
-    <h2>==================== Cabeçalho <%= params[:controller] %> ====================</h2>
-    <%= yield %> <!-- yeld carrega todas as páginas das views: index, edit, new, show e etc.-->
-    <h2>==================== Rodapé ====================</h2>
-
-    <script>$.notify("Funfou!!!", "success");</script> <!-- teste -->
+    <div class="container">
+    <ul class="nav justify-content-end">
+      <li class="nav-item">
+        <%= link_to 'Português-BR', '/?locale=pt-BR', class:"nav-link" %> <!-- a classe BS < class="nav-link" > vira um hash dentro do código ruby -->
+      </li>
+      <li class="nav-item">
+        <%= link_to 'English', root_path(locale: 'en'), class:"nav-link" %>
+      </li>
+    </ul>
+      <%= yield %> <!-- yeld carrega todas as páginas das views: index, edit, new, show e etc.-->
+    </div>
 
   </body>
 </html>

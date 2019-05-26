@@ -1,26 +1,8 @@
-<p>
-    <%= link_to 'Português-BR', '/?locale=pt-BR' %> <!-- < root_path(locale: 'pt-BR') > e < '/?locale=pt-BR' > são ambíguos -->
-</p>
+<div class="jumbotron">
+  <h1 class="display-4">Seja bem vindo!</h1>
+  <p class="lead">Este é o Crypto Wallet. Um app pra você cadastrar e acompanhar suas criptomoedas ;)</p>
+  <hr class="my-4">
+  <p>Selecione uma das opções abaixo:</p>
 
-<p>
-    <%= link_to 'English', root_path(locale: 'en') %>
-</p>
-
-<h1>Seja bem vindo!</h1>
-
-<p> O idioma padrão da aplicação é: <strong><%= t('actual_locale') %></strong> </p>
-<p><strong>Data:</strong> <%= I18n.l(Date.today) %></p>
-<!-- <p> <%= I18n.t('hello') %> </p> -->
-<p> <%= t('hello') %> </p> <!-- nas views a instância do 't' não é necessária, basta por o objeto diretamente que o rails reconhece -->
-
-<%= render "menu" %>
-
-<p>
-    Você está em ambiente de <strong><%= ambiente_rails %></strong>
-</p>
-<p>
-    Eu sou uma variável de instância/sessão <strong><%= @meu_nome %></strong>
-</p>
-<p>
-    Meu curso é o curso de <strong><%= @curso %></strong>
-</p>
+  <%= render "menu" %>
+</div>
