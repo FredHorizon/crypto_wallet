@@ -36,6 +36,7 @@ en:
     welcome: "This is the Crypto Wallet. An app for you to register and follow your crypto-coins."
     menu: "Select one of the options below:"
     confirm: "Are you sure?"
+    description: "Insert description"
   hello: "Hello world"
   links:
     edit: "Edit"

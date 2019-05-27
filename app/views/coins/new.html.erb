@@ -2,4 +2,4 @@
 
 <%= render 'form', coin: @coin %> <!-- renderiza a partial '_form.html.erb' que conterá o formulário com os campos vazios que foram instanciados pela ação new(@coin = Coin.new) do controller -->
 
-<%= link_to t('links.back'), coins_path %>
+<%= link_to t('links.back'), coins_path, class:"btn btn-secondary" %>
