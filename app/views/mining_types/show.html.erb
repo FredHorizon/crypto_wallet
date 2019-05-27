@@ -1,14 +1,14 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Description:</strong>
+  <strong><%= @mining_type.class.human_attribute_name(:description) %>:</strong>
   <%= @mining_type.description %>
 </p>
 
 <p>
-  <strong>Acronym:</strong>
+  <strong><%= @mining_type.class.human_attribute_name(:acronym) %>:</strong>
   <%= @mining_type.acronym %>
 </p>
 
-<%= link_to 'Edit', edit_mining_type_path(@mining_type) %> |
-<%= link_to 'Back', mining_types_path %>
+<%= link_to t('links.edit'), edit_mining_type_path(@mining_type) %> |
+<%= link_to t('links.back'), mining_types_path %>
